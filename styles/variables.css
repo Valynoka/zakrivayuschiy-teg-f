@@ -1,6 +1,6 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-  --font-main: "PressStart2P", sans-serif;
+  --font-main: "PressStart2P", fantasy;
   --font-main-logo: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   --font-main-title:clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   --font-text: "Inter-Variable", sans-serif;

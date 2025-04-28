@@ -10,54 +10,55 @@
 
 */
 
-.main-body { 
+.main-body {
   fill: transparent;
   transition: fill 0.3s linear;
 }
 
-.core { 
+.core {
   fill: transparent;
   transition: fill 0.3s linear 0.03s;
-} 
+}
 
-.sparks { 
+.sparks {
   opacity: 0;
   transition: fill 0.3s linear;
 }
 
-.like-icon:hover .main-body{ 
+.like-icon:hover .main-body {
   fill: #000;
   transition: 0.3s 0.05s linear;
 }
 
-.like-icon:hover .core{ 
+.like-icon:hover .core {
   fill: #000;
   transition: 0.3s linear;
 }
 
-.like-icon:active .main-body{ 
+.like-icon:active .main-body {
   fill: #ff0000;
   transition: 0.3s 0.05s linear;
 }
 
-.like-icon:active .core{ 
+.like-icon:active .core {
   fill: #ff0000;
   transition: 0.3s linear;
 }
 
-.like-icon.is-liked .main-body{ 
+.like-icon.is-liked .main-body {
   fill: #ff0000;
   transition: 0.3s 0.05s linear;
 }
 
-.like-icon.is-liked .core{ 
+.like-icon.is-liked .core {
   fill: #ff0000;
   transition: 0.3s linear;
 }
 
-.like-icon.is-liked .contour { 
+/* Вроде же верно, задерка 0.06 длительность 0.3 */
+.like-icon.is-liked .contour {
   fill: #ff0000;
-  transition: 0.3s 0.06s linear;
+  transition: fill 0.3s linear 0.06s;
 }
 
 .is-liked .heart {
@@ -78,32 +79,32 @@
   transform-origin: center;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
-} 
+}
 
-@keyframes heart-scale { 
-  0% { 
+@keyframes heart-scale {
+  0% {
     transform: scale(1);
   }
 
-  50% { 
+  50% {
     transform: scale(1.25);
   }
 
-  100% { 
+  100% {
     transform: scale(1);
   }
 }
 
 @keyframes sparks-opacity {
-  0% { 
+  0% {
     opacity: 0;
   }
 
-  50% { 
+  50% {
     opacity: 1;
   }
 
-  100% { 
+  100% {
     opacity: 1;
   }
 }

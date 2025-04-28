@@ -24,8 +24,7 @@
   align-items: center;
   gap: 100px;
   padding-block-start: 100px;
-  padding-block-end: 100px;
-  /* font-variation-settings: "wght" 400; */
+  font-variation-settings: "wght" var(--text-font-weight-normal);
 }
 
 /* ШАПКА САЙТА */
@@ -71,6 +70,12 @@
   width: 100%;
 }
 
+@media (width <=375px) {
+  .main {
+    gap: 53px;
+  }
+}
+
 .card {
   background-color: var(--bg-card-color);
   border: var(--border-view);
@@ -79,7 +84,7 @@
 .card__title {
   font-size: var(--text-font-size);
   font-family: var(--font-text);
-  font-weight: var(--text-font-weight-bold);
+  font-variation-settings: "wght" var(--text-font-weight-bold);
   padding: 4px 10px;
 }
 
@@ -117,7 +122,7 @@
 }
 
 .card__content-wrapper {
-  padding: 23px 25px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -156,6 +161,7 @@
   padding: 0;
   transition: border-color 0.3s ease;
   appearance: none;
+  max-height: 40px;
 }
 
 .button__icon:focus {
@@ -175,10 +181,11 @@
   cursor: pointer;
   background-color: var(--bg-card-color);
   border: var(--border-view);
+  transition: box-shadow 0.3s ease;
 }
 
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: var(--button-hover-color);
@@ -232,7 +239,7 @@
 
 @media (width <= 375px) {
   .button__save {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 6px;
     padding: 15px 21px 11px 19px;
   }
@@ -290,7 +297,7 @@ dialog::backdrop {
   cursor: pointer;
   position: relative;
   outline: none;
-  transition: box-shadow 0.3s ease; 
+  transition: box-shadow 0.3s ease;
   background-color: transparent;
 }
 
@@ -304,11 +311,47 @@ dialog::backdrop {
   grid-column: 2/3;
   font-family: var(--font-main);
   font-size: var(--button-font-size);
-  line-height: var(--text-font-height); 
+  line-height: var(--text-font-height);
   text-transform: uppercase;
 }
 
-@supports ((-webkit-text-stroke: 1px var(--bg-card-color)) or (text-stroke: 1px var(--bg-card-color))) {
+.modal__button-text {
+  text-transform: uppercase;
+}
+
+/* ФИЛЬТРЫ */
+.filter-grayscale {
+  filter: grayscale(70%);
+}
+
+.filter-saturate {
+  filter: saturate(280%);
+}
+
+.filter-multiple {
+  filter: contrast(100%) hue-rotate(30deg) saturate(100%);
+}
+
+.filter-invert {
+  filter: invert(80%);
+}
+
+.filter-sepia {
+  filter: sepia(90%);
+}
+
+.filter-blur {
+  filter: blur(10px);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(90deg) blur(1.5px) contrast(65%);
+}
+
+@supports (
+  (-webkit-text-stroke: 1px var(--bg-card-color)) or
+    (text-stroke: 1px var(--bg-card-color))
+) {
   .card__image-decor {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--bg-card-color);
