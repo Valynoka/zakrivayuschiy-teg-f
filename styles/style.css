@@ -13,4 +13,305 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  max-inline-size: 1440px;
+  margin: 0 auto;
+  background-image: var(--background-page);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+  padding-block-start: 100px;
+  padding-block-end: 100px;
+  /* font-variation-settings: "wght" 400; */
+}
+
+/* ШАПКА САЙТА */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 128px 0;
+  max-width: 700px;
+  width: 100%;
+  background-color: var(--bg-header-color);
+  border: var(--border-view);
+}
+
+@media (width <= 376px) {
+  .header {
+    padding: 120px 0;
+  }
+}
+
+.header__logo {
+  font-family: var(--font-main);
+  font-size: var(--font-main-logo);
+  text-transform: uppercase;
+}
+
+.header__title {
+  font-family: var(--font-main);
+  font-size: var(--font-main-title);
+  text-transform: uppercase;
+}
+
+/* ОСНОВНОЙ КОНТЕНТ */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 49px;
+  /* Ширина окна + по 2px border */
+  max-width: 700px;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--bg-card-color);
+  border: var(--border-view);
+}
+
+.card__title {
+  font-size: var(--text-font-size);
+  font-family: var(--font-text);
+  font-weight: var(--text-font-weight-bold);
+  padding: 4px 10px;
+}
+
+.card__image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__image-decor {
+  position: absolute;
+  font-family: var(--font-main);
+  font-size: 14px;
+  text-shadow: 0 0 1px #fff;
+  top: 28px;
+  right: 25px;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+}
+
+@media (width <= 375px) {
+  .card__image-decor {
+    top: 25px;
+    right: 11px;
+  }
+}
+
+/* Скачивается маленькая картинка, 
+поэтому хватило overflow: hidden на .card__image-wrapper  */
+.card__image {
+  object-position: center;
+  object-fit: cover;
+  width: 101%;
+  height: 100%;
+  display: block;
+}
+
+.card__content-wrapper {
+  padding: 23px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+@media (width <= 375px) {
+  .card__content-wrapper {
+    padding: 26px 25px 20px 25px;
+    gap: 25px;
+  }
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.card__text {
+  font-family: var(--font-text);
+  font-size: var(--text-font-size);
+  line-height: var(--text-font-height);
+}
+
+/* Кнопка в карточке общие стили*/
+.card__button-wrapper {
+  display: flex;
+  justify-content: end;
+  gap: 6px;
+}
+
+.button__icon {
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 0;
+  transition: border-color 0.3s ease;
+  appearance: none;
+}
+
+.button__icon:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: #000;
+}
+
+.button__icon:hover {
+  transform: scaleX(1);
+}
+
+.button {
+  position: relative;
+  cursor: pointer;
+  background-color: var(--bg-card-color);
+  border: var(--border-view);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--button-hover-color);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: 0.5s ease-in-out;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.card__like-button {
+  max-width: 130px;
+  width: 100%;
+  padding: 10px 20px;
+  height: 40px;
+}
+
+.button__text {
+  font-family: var(--font-main);
+  font-size: var(--button-font-size);
+  line-height: var(--text-font-height);
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+}
+
+/* КНОПКА ДИАЛОГОВОГО ОКНА */
+.button__save {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  border: var(--border-view);
+  /* max-width: 335px;
+  width: 100%; */
+  padding: 15px 21px 15px 19px;
+}
+
+@media (width <= 375px) {
+  .button__save {
+    flex-direction: column; 
+    gap: 6px;
+    padding: 15px 21px 11px 19px;
+  }
+}
+
+.button__save-icon {
+  position: relative;
+  block-size: 21px;
+  inline-size: 21px;
+  color: var(--bg-card-color);
+  mix-blend-mode: difference;
+  /* z-index: 1; */
+}
+
+@media (width <= 375px) {
+  .button__save-icon {
+    flex-direction: column;
+    block-size: 28px;
+    inline-size: 28px;
+  }
+}
+
+.modal {
+  max-width: 353px;
+  width: 100%;
+  padding: 30px 30px;
+}
+
+@media (width <= 375px) {
+  .modal {
+    max-width: 341px;
+  }
+}
+
+.modal__content {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.modal__icon {
+  grid-column: 1/2;
+  block-size: 39px;
+  inline-size: 39px;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.modal__button {
+  border: 2px solid #000;
+  padding: 7px 132px;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  transition: box-shadow 0.3s ease; 
+  background-color: transparent;
+}
+
+@media (width <= 375px) {
+  .modal__button {
+    padding: 7px 123px;
+  }
+}
+
+.modal__text {
+  grid-column: 2/3;
+  font-family: var(--font-main);
+  font-size: var(--button-font-size);
+  line-height: var(--text-font-height); 
+  text-transform: uppercase;
+}
+
+@supports ((-webkit-text-stroke: 1px var(--bg-card-color)) or (text-stroke: 1px var(--bg-card-color))) {
+  .card__image-decor {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--bg-card-color);
+    text-stroke: 1px var(--bg-card-color);
+  }
 }
