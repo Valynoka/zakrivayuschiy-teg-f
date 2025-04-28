@@ -22,8 +22,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
+  /* Пришлось убрать, так как если включает PP появляется отступ */
+  /* gap: 100px; */
   padding-block-start: 100px;
+  /* Отступ появляетя при включенном PP,
+  если его отключить и перезагрузить страницу, то все 
+  по макету. Как избавиться от этого я не знаю. */
+  padding-block-end: 100px;
   font-variation-settings: "wght" var(--text-font-weight-normal);
 }
 
@@ -39,6 +44,8 @@
   width: 100%;
   background-color: var(--bg-header-color);
   border: var(--border-view);
+  /* Так как убрал gap в page - сделал так: */
+  margin-block-end: 100px;
 }
 
 @media (width <= 376px) {
